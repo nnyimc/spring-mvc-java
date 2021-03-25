@@ -5,6 +5,7 @@ public class User {
     private String firstname;
     private String lastname;
     private Address address;
+    private Country country;
 
     public String getFirstname() {
         return firstname;
@@ -29,13 +30,22 @@ public class User {
     public void setAddress(Address address) {
         this.address = address;
     }
+    
+    public Country getCountry() {
+		return country;
+	}
+
+	public void setCountry(Country country) {
+		this.country = country;
+	}
 
     @Override
     public String toString() {
         return "User{" +
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
-                ", address=" + address +
+                ", address=" + address + '\'' +
+                ", country=" + country +
                 '}';
     }
 }
