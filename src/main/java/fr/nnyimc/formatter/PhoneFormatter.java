@@ -11,7 +11,7 @@ public class PhoneFormatter implements Formatter<Phone> {
 
 	@Override
 	public String print(Phone object, Locale locale) {
-		return null;
+		return object.getCountryCode()+ object.getAreaCode() + object.getNumber();
 	}
 
 	@Override

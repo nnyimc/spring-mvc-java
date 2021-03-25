@@ -11,8 +11,7 @@ public class CountryFormatter implements Formatter<Country> {
 
 	@Override
 	public String print(Country object, Locale locale) {
-		// TODO Auto-generated method stub
-		return null;
+		return object.getName();
 	}
 
 	@Override
