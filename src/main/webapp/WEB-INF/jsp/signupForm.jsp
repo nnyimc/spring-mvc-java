@@ -19,7 +19,7 @@
         </div>
 
         <div>
-            <h3>Address</h3>
+            <h3>Contact</h3>
             <div>
                 <label for="street">Street: </label>
                 <form:input id="street" path="address.street" type="text" value="${user.address.street}"/>
@@ -28,6 +28,12 @@
             <div>
                 <label for="zipCode">Zip code: </label>
                 <form:input id="zipCode" path="address.zipCode" type="text" value="${user.address.zipCode}"/>
+            </div>
+            
+            <div>
+                <label for="phone">Phone: </label>
+                <form:input id="phone" path="phone" type="text" 
+                value="${user.phone.countryCode}${user.phone.areaCode}${user.phone.number}"/>
             </div>
             
             <div>

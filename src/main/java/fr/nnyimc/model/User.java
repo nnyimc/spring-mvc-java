@@ -5,6 +5,7 @@ public class User {
     private String firstname;
     private String lastname;
     private Address address;
+    private Phone phone;
     private Country country;
 
     public String getFirstname() {
@@ -31,7 +32,16 @@ public class User {
         this.address = address;
     }
     
-    public Country getCountry() {
+    
+    public Phone getPhone() {
+		return phone;
+	}
+
+	public void setPhone(Phone phone) {
+		this.phone = phone;
+	}
+
+	public Country getCountry() {
 		return country;
 	}
 
@@ -45,6 +55,7 @@ public class User {
                 "firstname='" + firstname + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", address=" + address + '\'' +
+                ", phone=" + phone + '\'' +
                 ", country=" + country +
                 '}';
     }
