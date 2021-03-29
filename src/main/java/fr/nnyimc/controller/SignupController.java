@@ -20,7 +20,7 @@ public class SignupController {
 
     @GetMapping("/signup")
     public String getSignupForm(@ModelAttribute("user") User user, Model model){
-    	List<String> countryList = Arrays.asList("United States", "China", "France", "Germany", "United Kingdom");
+    	List<String> countryList = Arrays.asList("United States", "China", "France", "Peru", "United Kingdom");
     	model.addAttribute("countryList", countryList);
         return "signupForm";
     }
