@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
 @RequestMapping("/user")
@@ -22,12 +23,13 @@ public class SignupController {
     public String getSignupForm(@ModelAttribute("user") User user, Model model){
     	List<String> countryList = Arrays.asList("United States", "China", "France", "Peru", "United Kingdom");
     	model.addAttribute("countryList", countryList);
-        return "signupForm";
+        return "forward:signup";
     }
 
     @PostMapping("/save")
-    public String saveUser(@ModelAttribute("user") User user){
-        return "signupForm";
+    public String saveUser(@ModelAttribute("user") User user, RedirectAttributes redirectAttributes){
+    	redirectAttributes.addFlashAttribute(user) ;      
+    	return "redirect:callForm";
     }
     
     @GetMapping("/edit")
@@ -48,12 +50,16 @@ public class SignupController {
 			user.setPhone(p);
 			
 			model.addAttribute("countryList", countryList);
-			return "signupForm";
+			return "forward:callForm";
 		} catch (InstantiationException | IllegalAccessException | ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
     	return "";
+    }
+    
+    @GetMapping("callForm") 
+    public String getSignupForm() {
+    	return "signupForm";
     }
 
 }
